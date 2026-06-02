@@ -19,10 +19,11 @@ contract Issuer {
         uint256 remainingTokens;
     }
 
-    uint256 internal constant MIN_ISSUANCE = 1000e18;
-    uint256 internal constant MAX_TIME_TO_MATURITY = 4 * 365 days;
-    uint256 internal constant MAX_DISCOUNT_RATE_X1e18 = 0.5e18;
-    uint256 internal constant MAX_AUCTION_DURATION = 24 hours;
+    uint256 public constant MIN_ISSUANCE = 1000e18;
+    uint256 public constant MAX_TIME_TO_MATURITY = 4 * 365 days;
+    // (1e18 + MAX_DISCOUNT_RATE_X1e18)^(365 days) ~= 10e18
+    uint256 public constant MAX_DISCOUNT_RATE_X1e18 = 73014496989;
+    uint256 public constant MAX_AUCTION_DURATION = 7 days;
 
     IssuedToken public immutable basis;
 
